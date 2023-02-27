@@ -1,50 +1,47 @@
-import React, { useState, useEffect, MouseEventHandler } from "react";
-import { View } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
-import "./App.css";
-import { UploadWindow } from "./ui-components";
+import React, { useState } from 'react';
 
-const MODAL_STYLES = {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  className?: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}
+
+const Modal = ({ isOpen, onClose, className, style, children }: ModalProps) => {
+  const overlayStyles: React.CSSProperties = {
     position: 'fixed',
+    display: isOpen ? 'block' : 'none',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: '0px',
+    zIndex: 9999,
+  };
+
+  const modalStyles: React.CSSProperties = {
+    position: 'fixed',
+    display: isOpen ? 'block' : 'none',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: '#FFF',
     padding: '20px',
-    zIndex: 1000,
-    borderRadius: '20px'
-}
+    backgroundColor: '#fff',
+    borderRadius: '20px',
+    zIndex: 10000,
+    ...style,
+  };
 
-const OVERLAY_STYLES = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, .7)',
-    zIndex: 1000
-}
+  return (
+    <>
+      <div style={overlayStyles} className={className} onClick={onClose} />
+      <div style={modalStyles} className={className}>
+        {children}
+      </div>
+    </>
+  );
+};
 
-interface ModalProps {
-    open: boolean;
-    children?: React.ReactNode;
-    onClose: MouseEventHandler;
-}
-
-export default function Modal({open, children, onClose}: ModalProps) {
-    
-    const [isOpen, setIsOpen] = useState(false)
-
-    if (!open) return null;
-
-    return (
-        <>
-            <View style={OVERLAY_STYLES} />
-            <View style={MODAL_STYLES}>
-                <UploadWindow>
-                {children}
-                </UploadWindow>
-            </View>
-        </>
-    );
-}
+export default Modal;

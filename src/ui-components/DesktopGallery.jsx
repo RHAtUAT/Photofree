@@ -7,18 +7,18 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { View } from "@aws-amplify/ui-react";
 import NavBar from "./NavBar";
+import { Flex, View } from "@aws-amplify/ui-react";
 export default function DesktopGallery(props) {
   const { overrides, ...rest } = props;
   return (
-    <View
-      width="1920px"
-      height="1080px"
-      display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
+    <Flex
+      gap="10px"
+      direction="column"
+      width="100vw"
+      height="100vh"
+      justifyContent="flex-start"
+      alignItems="flex-start"
       overflow="hidden"
       position="relative"
       padding="0px 0px 0px 0px"
@@ -26,51 +26,61 @@ export default function DesktopGallery(props) {
       {...getOverrideProps(overrides, "DesktopGallery")}
       {...rest}
     >
-      <View
-        width="1116px"
-        height="1649px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="-65px"
-        bottom="-504px"
-        left="calc(50% - 558px - 0px)"
-        padding="0px 0px 0px 0px"
-        backgroundColor="rgba(217,217,217,1)"
-        {...getOverrideProps(overrides, "ImageCollection")}
-      ></View>
-      <View
-        padding="0px 0px 0px 0px"
-        width="0px"
-        height="0px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="852.71px"
-        left="978.25px"
-        {...getOverrideProps(overrides, "list")}
-      ></View>
-      <NavBar
-        display="flex"
-        gap="37px"
-        direction="row"
-        width="1920px"
-        height="68px"
-        justifyContent="center"
+      <Flex
+        gap="0"
+        direction="column"
+        width="unset"
+        height="unset"
+        justifyContent="flex-start"
         alignItems="center"
-        position="absolute"
-        top="0px"
-        left="0px"
-        right="0px"
-        boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-        padding="24px 32px 24px 32px"
-        backgroundColor="rgba(255,255,255,1)"
-        {...getOverrideProps(overrides, "NavBar")}
-      ></NavBar>
-    </View>
+        grow="1"
+        shrink="1"
+        basis="0"
+        alignSelf="stretch"
+        position="relative"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Content")}
+      >
+        <View
+          width="unset"
+          height="65px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "NavBarContainer")}
+        >
+          <NavBar />
+        </View>
+        <View
+          display="block"
+          grow="1"
+          shrink="1"
+          basis="0"
+          alignSelf="stretch"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "BackgroundContainer")}
+        >
+          <View
+            width="2168px"
+            height="1342px"
+            display="block"
+            position="absolute"
+            top="1342px"
+            bottom="-1342px"
+            left="250px"
+            right="250px"
+            padding="0px 0px 0px 0px"
+            backgroundColor="rgba(239,240,240,1)"
+            {...getOverrideProps(overrides, "Background")}
+          ></View>
+        </View>
+      </Flex>
+    </Flex>
   );
 }

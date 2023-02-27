@@ -6,16 +6,18 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ViewProps } from "@aws-amplify/ui-react";
 import { NavBarProps } from "./NavBar";
+import { FlexProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type DesktopGalleryOverridesProps = {
-    DesktopGallery?: PrimitiveOverrideProps<ViewProps>;
-    ImageCollection?: PrimitiveOverrideProps<ViewProps>;
-    list?: PrimitiveOverrideProps<ViewProps>;
+    DesktopGallery?: PrimitiveOverrideProps<FlexProps>;
+    Content?: PrimitiveOverrideProps<FlexProps>;
+    NavBarContainer?: PrimitiveOverrideProps<ViewProps>;
     NavBar?: NavBarProps;
+    BackgroundContainer?: PrimitiveOverrideProps<ViewProps>;
+    Background?: PrimitiveOverrideProps<ViewProps>;
 } & EscapeHatchProps;
-export declare type DesktopGalleryProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type DesktopGalleryProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: DesktopGalleryOverridesProps | undefined | null;
 }>;
 export default function DesktopGallery(props: DesktopGalleryProps): React.ReactElement;

@@ -6,16 +6,21 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ButtonProps, DividerProps, FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type UploadWindowOverridesProps = {
-    UploadWindow?: PrimitiveOverrideProps<FlexProps>;
+export declare type DetailsCardOverridesProps = {
+    DetailsCard?: PrimitiveOverrideProps<FlexProps>;
     Content?: PrimitiveOverrideProps<ViewProps>;
     CloseButton?: PrimitiveOverrideProps<ButtonProps>;
+    Details?: PrimitiveOverrideProps<FlexProps>;
     Title?: PrimitiveOverrideProps<TextProps>;
-    UploadSection?: PrimitiveOverrideProps<ViewProps>;
+    Divider?: PrimitiveOverrideProps<DividerProps>;
+    DateUploaded?: PrimitiveOverrideProps<TextProps>;
+    Resolution?: PrimitiveOverrideProps<TextProps>;
+    FileSize?: PrimitiveOverrideProps<TextProps>;
+    FileName?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type UploadWindowProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: UploadWindowOverridesProps | undefined | null;
+export declare type DetailsCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: DetailsCardOverridesProps | undefined | null;
 }>;
-export default function UploadWindow(props: UploadWindowProps): React.ReactElement;
+export default function DetailsCard(props: DetailsCardProps): React.ReactElement;

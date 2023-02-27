@@ -8,11 +8,12 @@ import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { ButtonProps, FlexProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type CloseButtonOverridesProps = {
-    CloseButton?: PrimitiveOverrideProps<FlexProps>;
-    CloseButton36822874?: PrimitiveOverrideProps<ButtonProps>;
+export declare type OptionsCardOverridesProps = {
+    OptionsCard?: PrimitiveOverrideProps<FlexProps>;
+    DetailsButton?: PrimitiveOverrideProps<ButtonProps>;
+    SignOutButton?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type CloseButtonProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: CloseButtonOverridesProps | undefined | null;
+export declare type OptionsCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: OptionsCardOverridesProps | undefined | null;
 }>;
-export default function CloseButton(props: CloseButtonProps): React.ReactElement;
+export default function OptionsCard(props: OptionsCardProps): React.ReactElement;

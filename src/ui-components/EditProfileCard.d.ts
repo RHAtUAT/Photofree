@@ -6,26 +6,25 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { CloseButtonProps } from "./CloseButton";
 import { ButtonProps, DividerProps, FlexProps, ImageProps, TextFieldProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type EditProfileOverridesProps = {
-    EditProfile?: PrimitiveOverrideProps<ViewProps>;
-    CloseButton?: CloseButtonProps;
-    Content?: PrimitiveOverrideProps<FlexProps>;
-    "Edit Profile29766913"?: PrimitiveOverrideProps<FlexProps>;
-    "Edit Profile29766916"?: PrimitiveOverrideProps<TextProps>;
+export declare type EditProfileCardOverridesProps = {
+    EditProfileCard?: PrimitiveOverrideProps<FlexProps>;
+    Content?: PrimitiveOverrideProps<ViewProps>;
+    CloseButton?: PrimitiveOverrideProps<ButtonProps>;
+    ProfileSection?: PrimitiveOverrideProps<ViewProps>;
+    "Edit Profile"?: PrimitiveOverrideProps<TextProps>;
     Divider29766917?: PrimitiveOverrideProps<DividerProps>;
     Profile?: PrimitiveOverrideProps<FlexProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
-    "Upload New Image"?: PrimitiveOverrideProps<TextProps>;
+    UploadImage?: PrimitiveOverrideProps<TextProps>;
     Forms?: PrimitiveOverrideProps<FlexProps>;
-    TextField29766922?: PrimitiveOverrideProps<TextFieldProps>;
-    TextField29766924?: PrimitiveOverrideProps<TextFieldProps>;
+    NameField?: PrimitiveOverrideProps<TextFieldProps>;
+    EmailField?: PrimitiveOverrideProps<TextFieldProps>;
     Divider29766925?: PrimitiveOverrideProps<DividerProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
+    SaveButon?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type EditProfileProps = React.PropsWithChildren<Partial<ViewProps> & {
-    overrides?: EditProfileOverridesProps | undefined | null;
+export declare type EditProfileCardProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: EditProfileCardOverridesProps | undefined | null;
 }>;
-export default function EditProfile(props: EditProfileProps): React.ReactElement;
+export default function EditProfileCard(props: EditProfileCardProps): React.ReactElement;

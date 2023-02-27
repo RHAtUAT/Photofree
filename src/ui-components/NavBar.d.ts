@@ -10,15 +10,16 @@ import { ButtonProps, FlexProps, IconProps, ImageProps, TextProps, ViewProps } f
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarOverridesProps = {
     NavBar?: PrimitiveOverrideProps<FlexProps>;
-    Logo?: PrimitiveOverrideProps<FlexProps>;
-    "Star 1"?: PrimitiveOverrideProps<IconProps>;
-    Photofree?: PrimitiveOverrideProps<TextProps>;
+    Content?: PrimitiveOverrideProps<ViewProps>;
     LeftSection?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 422"?: PrimitiveOverrideProps<ViewProps>;
-    Dashboard?: PrimitiveOverrideProps<TextProps>;
+    BrandButton?: PrimitiveOverrideProps<FlexProps>;
+    logo?: PrimitiveOverrideProps<ViewProps>;
+    Back?: PrimitiveOverrideProps<IconProps>;
+    Front?: PrimitiveOverrideProps<IconProps>;
+    label?: PrimitiveOverrideProps<TextProps>;
     RightSection?: PrimitiveOverrideProps<FlexProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;
-    image?: PrimitiveOverrideProps<ImageProps>;
+    Image?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
 export declare type NavBarProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: NavBarOverridesProps | undefined | null;

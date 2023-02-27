@@ -6,16 +6,15 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, FlexProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type UploadWindowOverridesProps = {
-    UploadWindow?: PrimitiveOverrideProps<FlexProps>;
+export declare type CopiedLabelOverridesProps = {
+    CopiedLabel?: PrimitiveOverrideProps<FlexProps>;
     Content?: PrimitiveOverrideProps<ViewProps>;
-    CloseButton?: PrimitiveOverrideProps<ButtonProps>;
-    Title?: PrimitiveOverrideProps<TextProps>;
-    UploadSection?: PrimitiveOverrideProps<ViewProps>;
+    CopiedText?: PrimitiveOverrideProps<TextProps>;
+    Triangle?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type UploadWindowProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: UploadWindowOverridesProps | undefined | null;
+export declare type CopiedLabelProps = React.PropsWithChildren<Partial<FlexProps> & {
+    overrides?: CopiedLabelOverridesProps | undefined | null;
 }>;
-export default function UploadWindow(props: UploadWindowProps): React.ReactElement;
+export default function CopiedLabel(props: CopiedLabelProps): React.ReactElement;

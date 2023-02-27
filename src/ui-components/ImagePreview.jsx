@@ -12,19 +12,20 @@ export default function ImagePreview(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="475px"
+      width="480px"
       height="550px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "ImagePreview")}
       {...rest}
     >
       <View
-        width="446.6px"
+        width="451.3px"
         height="457.49px"
         display="block"
         gap="unset"
@@ -43,7 +44,7 @@ export default function ImagePreview(props) {
       <Flex
         gap="10px"
         direction="column"
-        width="475px"
+        width="480px"
         height="550px"
         justifyContent="center"
         alignItems="center"
@@ -70,7 +71,7 @@ export default function ImagePreview(props) {
           alignSelf="stretch"
           position="relative"
           boxShadow="0px 10px 15px rgba(0.7647058963775635, 0.7254902124404907, 0.686274528503418, 0.6299999952316284)"
-          borderRadius="20px"
+          borderRadius="12px"
           padding="0px 0px 0px 0px"
           objectFit="cover"
           {...getOverrideProps(overrides, "Image")}
@@ -122,8 +123,8 @@ export default function ImagePreview(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 26.0341796875,
-                  height: 20.5126953125,
+                  width: 26.034423828125,
+                  height: 20.5128173828125,
                 }}
                 paths={[
                   {
@@ -149,8 +150,8 @@ export default function ImagePreview(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 26.048828125,
-                  height: 20.5126953125,
+                  width: 26.04931640625,
+                  height: 20.5128173828125,
                 }}
                 paths={[
                   {
@@ -227,8 +228,8 @@ export default function ImagePreview(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 2.9794921875,
-                  height: 2.9765625,
+                  width: 2.97900390625,
+                  height: 2.97674560546875,
                 }}
                 paths={[
                   {
@@ -254,8 +255,8 @@ export default function ImagePreview(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 2.9794921875,
-                  height: 2.9765625,
+                  width: 2.97900390625,
+                  height: 2.97674560546875,
                 }}
                 paths={[
                   {
@@ -281,8 +282,8 @@ export default function ImagePreview(props) {
                 viewBox={{
                   minX: 0,
                   minY: 0,
-                  width: 2.9794921875,
-                  height: 2.9765625,
+                  width: 2.97900390625,
+                  height: 2.97674560546875,
                 }}
                 paths={[
                   {
