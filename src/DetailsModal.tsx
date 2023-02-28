@@ -2,13 +2,13 @@ import React, { useState } from "react";
 
 interface DetailsProps {
   onClose: () => void;
-  imageUrl: string;
+  url: string;
   alt: string;
   uploadDate: Date;
   size: string
 }
 
-const Details: React.FC<DetailsProps> = ({ onClose, imageUrl, alt, uploadDate, size }) => {
+const Details: React.FC<DetailsProps> = ({ onClose, url, alt, uploadDate, size }) => {
   const [showDetails, setShowDetails] = useState(true);
 
   const closeModal = () => {
@@ -71,7 +71,7 @@ const Details: React.FC<DetailsProps> = ({ onClose, imageUrl, alt, uploadDate, s
         <h2>Details</h2>
         <p>Image URL:</p>
         <div style={{ overflow: "scroll", maxHeight: "100px", maxWidth: "100%", border: "1px solid #ccc", padding: "5px"}}>
-          <p style={{ textAlign: "left"}}>{imageUrl}</p>
+          <p style={{ textAlign: "left"}}>{url}</p>
         </div>
         <p>Filename: {alt}</p>
         <p>Size: {size}</p>

@@ -89,14 +89,14 @@ export const UploadTheme: Theme = {
     borderWidths: {
       small: { value: '2px' },
       medium: { value: '4px' },
-      // large: { value: '8px' },
+      large: { value: '8px' },
     },
     radii: {
-      // xs: { value: '1rem' },
+      xs: { value: '1rem' },
       small: { value: '1.5rem' },
-      // medium: { value: '2rem' },
-      // large: { value: '2rem' },
-      // xl: { value: '3rem' },
+      medium: { value: '2rem' },
+      large: { value: '2rem' },
+      xl: { value: '3rem' },
     },
   },
 };

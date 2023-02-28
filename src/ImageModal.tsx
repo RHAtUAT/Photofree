@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from './Modal';
 import DetailsModal from './DetailsModal';
 import "@aws-amplify/ui-react/styles.css";
+import { Storage } from 'aws-amplify';
+import { generatePresignedUrl } from './generateURL';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -11,20 +13,7 @@ interface ImageModalProps {
   size: string;
 }
 
-const ImageModal = ({ isOpen, onClose, src: imageUrl, alt, size }: ImageModalProps) => {
-  const modalStyle: React.CSSProperties = {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // alignItems: 'center',
-    // backgroundColor: '#FFFFFF',
-    // borderRadius: '20px',
-    // padding: '20px',
-    // height: 'auto',  // set height to auto to match the height of the image
-    // width: 'auto',   // set width to auto to match the width of the image
-    // maxWidth: 'calc(100% - 20px)',  // subtract 20px to account for padding
-    // maxHeight: 'calc(100% - 20px)',  // subtract 20px to account for padding
-    // overflow: 'hidden',
-  };
+const ImageModal = ({ isOpen, onClose, src, alt, size }: ImageModalProps) => {
 
   const imageStyle: React.CSSProperties = {
     width: '100%',
@@ -51,8 +40,9 @@ const ImageModal = ({ isOpen, onClose, src: imageUrl, alt, size }: ImageModalPro
   const [copied, setCopied] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
-  const copyLink = () => {
-    navigator.clipboard.writeText(imageUrl);
+  const copyLink = async () => {
+    const url = await generatePresignedUrl(alt);
+    navigator.clipboard.writeText(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -68,8 +58,8 @@ const ImageModal = ({ isOpen, onClose, src: imageUrl, alt, size }: ImageModalPro
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <div style={modalStyle}>
-          <img src={imageUrl} alt={alt} style={imageStyle} />
+        <div>
+          <img src={src} alt={alt} style={imageStyle} />
           <div style={buttonContainer}>
             <button style={buttonStyle} onClick={copyLink}>
               {copied ? 'Copied!' : 'Copy Link'}
@@ -82,10 +72,10 @@ const ImageModal = ({ isOpen, onClose, src: imageUrl, alt, size }: ImageModalPro
       </Modal>
       {showDetails && (
         <DetailsModal
-          imageUrl={imageUrl}
+          url={src}
           alt={alt}
           onClose={closeDetails}
-          uploadDate={new Date} //TODO get actual upload date
+          uploadDate={new Date} // TODO: get actual upload date
           size={size}
         />
       )}

@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { S3ProviderListOutputItem } from "@aws-amplify/storage";
 import { Card, Flex, Heading, Image } from "@aws-amplify/ui-react";
-import Modal from "./Modal";
-import { ImagePreview } from "./ui-components";
 import ImageModal from "./ImageModal";
-import { relative } from "path";
 
 export function ImageCard({
   item,
@@ -29,6 +26,7 @@ export function ImageCard({
         boxShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
         backgroundColor={"#FFFFFF"}
         onClick={() => setIsOpen(!isOpen)}
+        style={{cursor: "pointer"}}
       >
       <Flex
         gap="xxs"
@@ -65,6 +63,7 @@ export function ImageCard({
           alt={imageKeys[index]?.key ?? ""}
           onClose={handleClose}
           size={(imageKeys[index]?.size ?? "").toString()+ "kb"}
+          key={imageKeys[index]?.key ?? ""}
         />
       )}
     </>

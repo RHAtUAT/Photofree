@@ -1,0 +1,5 @@
+# Non required files
+Dockerfile
+.dockerignore
+.gitignore
+node_modules

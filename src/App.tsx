@@ -4,27 +4,19 @@ import {
   withAuthenticator,
   useAuthenticator,
   Button,
-  Flex,
-  Menu,
-  MenuItem,
   ThemeProvider,
   View
 } from "@aws-amplify/ui-react";
-import { Storage } from "aws-amplify";
-import { S3ProviderListOutputItem } from "@aws-amplify/storage";
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 import "./index.css";
+import { Storage } from "aws-amplify";
+import { S3ProviderListOutputItem } from "@aws-amplify/storage";
 import { ImageCard } from "./ImageCard";
-import config from '../src/aws-exports';
-import { DesktopGallery, EditProfileCard, NavBar, OptionsCard, studioTheme, UploadWindow } from "./ui-components";
-import Modal from "./Modal";
+import { NavBar, UploadWindow } from "./ui-components";
 import { UploadTheme as uploadTheme } from "./UploadTheme";
-import OptionsItem from "./ImageModal";
-
-import React, { useState, useEffect, useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import DropdownItem from "./DropdownMenu";
+import Modal from "./Modal";
+import React, { useState, useEffect } from 'react';
 
 function App() {
 
@@ -59,87 +51,84 @@ function App() {
 
   const UploadElement = (
     <ThemeProvider theme={uploadTheme}>
-    <FileUploader
-      accessLevel="private"
-      acceptedFileTypes={["image/*"]}
-      variation="drop"
-      onSuccess={onSuccess}
+      <FileUploader
+        accessLevel="private"
+        acceptedFileTypes={["image/*"]}
+        variation="drop"
+        onSuccess={onSuccess}
       />
-      </ThemeProvider>
+    </ThemeProvider>
   );
 
   const UploadPopup = (
-    <UploadWindow 
+    <UploadWindow
       overrides={{
-       CloseButton: {onClick: toggleUploadWindow},
-       UploadSection: {children: UploadElement}
+        CloseButton: { onClick: toggleUploadWindow },
+        UploadSection: { children: UploadElement }
       }} />
   );
 
   const [isUploadOpen, setUploadWindow] = useState(false);
-//#endregion
+  //#endregion
 
-//#region Options
-const toggleEditProfileWindow = () => {
-  setEditProfileWindow(!isEditProfileWindowOpen);
+  //#region Options
+  const toggleEditProfileWindow = () => {
+    setEditProfileWindow(!isEditProfileWindowOpen);
+  }
 
-}
-
-const OptionsDropdown = (
-
-  <>
-    <Button 
-      display={"block"} 
-      width={"100%"} 
-      onClick={toggleEditProfileWindow}
-      marginBottom={"10px"}>
+  const OptionsDropdown = (
+    <>
+      <Button
+        display={"block"}
+        width={"100%"}
+        onClick={toggleEditProfileWindow}
+        marginBottom={"10px"}>
         Edit Profile
-    </Button>
-    <Button 
-      display={"block"}
-      backgroundColor={"rgba(0,85,102,1)"}
-      width={"100%"} 
-      onClick={signOut}
-      marginBottom={"10px"}
-      color={"#ffffff"}>
+      </Button>
+      <Button
+        display={"block"}
+        backgroundColor={"rgba(0,85,102,1)"}
+        width={"100%"}
+        onClick={signOut}
+        marginBottom={"10px"}
+        color={"#ffffff"}>
         Sign Out
-    </Button>
-      
-  </>
-);
+      </Button>
+    </>
+  );
 
-const backgroundStyle: React.CSSProperties = {
-  margin: '0',
-  padding: '0',
-  height: '100vh', /* Set the height of the body to the full viewport height */
-  width: '60vw',
-  left: '20%',
-  display: 'flex', /* Use flexbox to center the grey rectangle */
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: '#f4f4f4', /* Set the background color to grey */
-  position: 'absolute',
-};
+  const backgroundStyle: React.CSSProperties = {
+    margin: '0',
+    padding: '0',
+    height: '100vh',
+    width: '60vw',
+    left: '20%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4',
+    position: 'absolute',
+  };
 
-const [isEditProfileWindowOpen, setEditProfileWindow] = useState(false);
-//#endregion
+  const [isEditProfileWindowOpen, setEditProfileWindow] = useState(false);
+  //#endregion
 
   return (
-    
+
     <>
       <View style={backgroundStyle} />
       <NavBar className="NavBar"
-       overrides={{
-         Button: {onClick: toggleUploadWindow},
-         DropdownMenu: {children: OptionsDropdown}
-        }}/>
+        overrides={{
+          Button: { onClick: toggleUploadWindow },
+          DropdownMenu: { children: OptionsDropdown }
+        }} />
       <Modal
         isOpen={isUploadOpen}
         children={(UploadPopup)}
         onClose={toggleUploadWindow}
-        />
+      />
       <Collection
-      style={{zIndex: 1}}
+        style={{ zIndex: 1 }}
         items={images}
         type="grid"
         padding="2rem"
@@ -154,17 +143,16 @@ const [isEditProfileWindowOpen, setEditProfileWindow] = useState(false);
           large: "repeat(3, minmax(0, 1fr))"
         }}
         gap="small"
-        >
+      >
         {(item, index) => (
           <ImageCard
-          key={index}
-          imageKeys={imageKeys}
-          item={item}
-          index={index}
+            key={index}
+            imageKeys={imageKeys}
+            item={item}
+            index={index}
           />
-          )}
+        )}
       </Collection>
-
     </>
   );
 }

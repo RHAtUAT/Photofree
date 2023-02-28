@@ -1,5 +1,4 @@
-import { Menu, MenuItem, View } from '@aws-amplify/ui-react';
-import { useState, useRef, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from 'react';
+import { useState, useRef, useEffect} from 'react';
 import './App.css';
 
 export const DropdownMenu = (props: any) => {
