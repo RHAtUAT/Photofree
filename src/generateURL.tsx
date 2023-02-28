@@ -9,7 +9,7 @@ export async function generatePresignedUrl(key: string): Promise<string> {
     // Retrieve the user's credentials
     const credentials = await Auth.currentCredentials();
     const client = new S3Client({
-        region: "us-west-2",
+        region: awsmobile.aws_project_region,
         credentials,
       });
     try {
