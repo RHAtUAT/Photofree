@@ -116,23 +116,22 @@ function App() {
   return (
 
     <>
-      <View style={backgroundStyle} />
       <NavBar className="NavBar"
+        style={{ zIndex: 1 }}
         overrides={{
           Button: { onClick: toggleUploadWindow },
           DropdownMenu: { children: OptionsDropdown }
         }} />
+      <div style={backgroundStyle}>
       <Modal
         isOpen={isUploadOpen}
         children={(UploadPopup)}
         onClose={toggleUploadWindow}
       />
       <Collection
-        style={{ zIndex: 1 }}
         items={images}
         type="grid"
         padding="2rem"
-        // boxShadow="0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
         maxWidth="1100px"
         margin="100px auto"
         backgroundColor={"transparent"}
@@ -153,6 +152,7 @@ function App() {
           />
         )}
       </Collection>
+      </div>
     </>
   );
 }
