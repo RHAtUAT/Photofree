@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Modal from './Modal';
 import DetailsModal from './DetailsModal';
 import "@aws-amplify/ui-react/styles.css";
-import { Storage } from 'aws-amplify';
-import { generatePresignedUrl } from './generateURL';
+import { generatePresignedUrl } from './generateUrl';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -41,7 +40,7 @@ const ImageModal = ({ isOpen, onClose, src, alt, size }: ImageModalProps) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const copyLink = async () => {
-    const url = await generatePresignedUrl(alt);
+    const url = await generatePresignedUrl(src);
     navigator.clipboard.writeText(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -75,7 +74,7 @@ const ImageModal = ({ isOpen, onClose, src, alt, size }: ImageModalProps) => {
           url={src}
           alt={alt}
           onClose={closeDetails}
-          uploadDate={new Date} // TODO: get actual upload date
+          uploadDate={new Date} // TODO: Get actual upload date
           size={size}
         />
       )}
