@@ -10,14 +10,14 @@ import { NavBarProps } from "./NavBar";
 import { FlexProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type DesktopGalleryOverridesProps = {
-    DesktopGallery?: PrimitiveOverrideProps<FlexProps>;
+    DesktopGallery?: PrimitiveOverrideProps<ViewProps>;
     Content?: PrimitiveOverrideProps<FlexProps>;
     NavBarContainer?: PrimitiveOverrideProps<ViewProps>;
     NavBar?: NavBarProps;
     BackgroundContainer?: PrimitiveOverrideProps<ViewProps>;
     Background?: PrimitiveOverrideProps<ViewProps>;
 } & EscapeHatchProps;
-export declare type DesktopGalleryProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type DesktopGalleryProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: DesktopGalleryOverridesProps | undefined | null;
 }>;
 export default function DesktopGallery(props: DesktopGalleryProps): React.ReactElement;

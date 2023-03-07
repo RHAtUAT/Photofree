@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Modal from './Modal';
-import DetailsModal from './DetailsModal';
+import Modal from '../modal/modal';
+import DetailsModal from '../details-modal/detailsModal';
 import "@aws-amplify/ui-react/styles.css";
-import { generatePresignedUrl } from './generateUrl';
+import "./imageModal.css";
+import { generatePresignedUrl } from '../../../generateUrl';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -14,34 +15,12 @@ interface ImageModalProps {
 
 const ImageModal = ({ isOpen, onClose, src, alt, size }: ImageModalProps) => {
 
-  const imageStyle: React.CSSProperties = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-    alignContent: 'center'
-  };
-
-  const buttonContainer: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: '20px',
-  };
-
-  const buttonStyle: React.CSSProperties = {
-    backgroundColor: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    color: '#007AFF',
-    fontWeight: 'bold',
-  };
-
   const [copied, setCopied] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
   const copyLink = async () => {
     const url = await generatePresignedUrl(src);
-    navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(url); // Only runs if an HTTPS connection is established
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -57,13 +36,13 @@ const ImageModal = ({ isOpen, onClose, src, alt, size }: ImageModalProps) => {
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <div>
-          <img src={src} alt={alt} style={imageStyle} />
-          <div style={buttonContainer}>
-            <button style={buttonStyle} onClick={copyLink}>
+        <div className="image-modal-container">
+          <img src={src} alt={alt} className="image-modal" />
+          <div className="button-container">
+            <button className="button-style" onClick={copyLink}>
               {copied ? 'Copied!' : 'Copy Link'}
             </button>
-            <button style={buttonStyle} onClick={openDetails}>
+            <button className="button-style" onClick={openDetails}>
               Details
             </button>
           </div>
@@ -74,7 +53,7 @@ const ImageModal = ({ isOpen, onClose, src, alt, size }: ImageModalProps) => {
           url={src}
           alt={alt}
           onClose={closeDetails}
-          uploadDate={new Date} // TODO: Get actual upload date
+          uploadDate={new Date()} // TODO: Get actual upload date
           size={size}
         />
       )}

@@ -12,13 +12,13 @@ import { Flex, View } from "@aws-amplify/ui-react";
 export default function DesktopGallery(props) {
   const { overrides, ...rest } = props;
   return (
-    <Flex
-      gap="10px"
-      direction="column"
-      width="100vw"
-      height="100vh"
-      justifyContent="flex-start"
-      alignItems="flex-start"
+    <View
+      width="862px"
+      height="635px"
+      display="block"
+      gap="unset"
+      alignItems="unset"
+      justifyContent="unset"
       overflow="hidden"
       position="relative"
       padding="0px 0px 0px 0px"
@@ -29,15 +29,15 @@ export default function DesktopGallery(props) {
       <Flex
         gap="0"
         direction="column"
-        width="unset"
-        height="unset"
+        width="862px"
+        height="635px"
         justifyContent="flex-start"
         alignItems="center"
-        grow="1"
-        shrink="1"
-        basis="0"
-        alignSelf="stretch"
-        position="relative"
+        position="absolute"
+        top="0px"
+        bottom="0px"
+        left="0px"
+        right="0px"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Content")}
       >
@@ -54,10 +54,31 @@ export default function DesktopGallery(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "NavBarContainer")}
         >
-          <NavBar />
+          <NavBar
+            display="flex"
+            gap="37px"
+            direction="row"
+            width="862px"
+            height="65px"
+            justifyContent="flex-start"
+            alignItems="center"
+            position="absolute"
+            top="0px"
+            left="0px"
+            right="0px"
+            boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+            padding="10px 32px 10px 32px"
+            backgroundColor="rgba(255,255,255,1)"
+            {...getOverrideProps(overrides, "NavBar")}
+          ></NavBar>
         </View>
         <View
+          width="unset"
+          height="unset"
           display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           grow="1"
           shrink="1"
           basis="0"
@@ -67,12 +88,15 @@ export default function DesktopGallery(props) {
           {...getOverrideProps(overrides, "BackgroundContainer")}
         >
           <View
-            width="2168px"
-            height="1342px"
+            width="362px"
+            height="570px"
             display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
             position="absolute"
-            top="1342px"
-            bottom="-1342px"
+            top="570px"
+            bottom="-570px"
             left="250px"
             right="250px"
             padding="0px 0px 0px 0px"
@@ -81,6 +105,6 @@ export default function DesktopGallery(props) {
           ></View>
         </View>
       </Flex>
-    </Flex>
+    </View>
   );
 }

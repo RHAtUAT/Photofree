@@ -10,6 +10,7 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^18.14.1",
     "@types/react": "^18.0.28",
+    "aws": "^0.0.3-2",
     "aws-amplify": "^5.0.15",
     "aws-sdk": "^2.1324.0",
     "react": "^18.2.0",

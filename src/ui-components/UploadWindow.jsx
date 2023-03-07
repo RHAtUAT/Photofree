@@ -26,7 +26,12 @@ export default function UploadWindow(props) {
       {...rest}
     >
       <View
+        width="unset"
+        height="unset"
         display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         grow="1"
         shrink="1"
         basis="0"
@@ -62,6 +67,7 @@ export default function UploadWindow(props) {
           width="925px"
           height="36px"
           gap="unset"
+          alignItems="unset"
           position="absolute"
           top="57px"
           left="0px"
@@ -75,6 +81,9 @@ export default function UploadWindow(props) {
           width="925px"
           height="514px"
           display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
           position="absolute"
           top="108px"
           bottom="0px"

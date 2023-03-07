@@ -1,0 +1,54 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100vw;
+    padding: 0 20px;
+    background-color: var(--amplify-colors-background-primary);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    height: 60px;
+    cursor: pointer;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-upload {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--amplify-colors-brand-primary-100);
+    color: var(--amplify-colors-background-primary);
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .navbar-profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .navbar-profile-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }

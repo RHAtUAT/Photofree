@@ -1,0 +1,24 @@
+/* Image styles */
+.image-style {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    align-content: center;
+  }
+  
+  /* Button container styles */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Button styles */
+  .button-style {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--amplify-colors-brand-primary-100);
+    font-weight: bold;
+  }

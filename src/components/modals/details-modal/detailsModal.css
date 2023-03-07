@@ -1,0 +1,48 @@
+.details-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--amplify-colors-background-primary);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 500px;
+    max-height: 80%;
+    z-index: 10002;
+  }
+  
+  .close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--amplify-colors-black);
+    font-weight: bold;
+    align-self: flex-end;
+    position: relative;
+    top: 15px;
+    right: 15px;
+    z-index: 10006;
+  }
+  
+  .modal-overlay {
+    background-color: var(--amplify-colors-overlay-50);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+  }
+
+  .url-container {
+    max-height: 100px; /* Set a fixed height for the container */
+    overflow-y: scroll; /* Add a vertical scrollbar when the content overflows */
+    overflow-x: scroll; /* Add a horizontal scrollbar when the content overflows */
+    max-width: 100%; /* Limit the width of the container to the width of its parent */
+    word-wrap: break-word; /* Allow words to break and wrap to the next line if they exceed the width of the container */
+    background-color: var(--amplify-colors-background-tertiary);
+    border: var(--amplify-border-widths-medium);
+    border-color: var(--amplify-colors-border-primary);
+  }

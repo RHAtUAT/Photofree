@@ -2,10 +2,7 @@ import {
   FileUploader,
   Collection,
   withAuthenticator,
-  useAuthenticator,
-  Button,
   ThemeProvider,
-  View
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
@@ -13,17 +10,18 @@ import "./index.css";
 import { Storage } from "aws-amplify";
 import { S3ProviderListOutputItem } from "@aws-amplify/storage";
 import { ImageCard } from "./ImageCard";
-import { NavBar, UploadWindow } from "./ui-components";
+import {UploadWindow } from "./ui-components";
+import Navbar from "./components/navbar/navbar";
 import { UploadTheme as uploadTheme } from "./UploadTheme";
-import Modal from "./Modal";
+import Modal from "./components/modals/modal/modal";
 import React, { useState, useEffect } from 'react';
+import UploadModal from "./components/modals/upload-modal/uploadModal";
 
 function App() {
 
   //#region File Uploading
   const [imageKeys, setImageKeys] = useState<S3ProviderListOutputItem[]>([]);
   const [images, setImages] = useState<string[]>([]);
-  const { signOut } = useAuthenticator(context => [context.signOut]);
 
   const fetchImages = async () => {
     const { results } = await Storage.list("", { level: "private" });
@@ -49,53 +47,8 @@ function App() {
     setUploadWindow(!isUploadOpen);
   }
 
-  const UploadElement = (
-    <ThemeProvider theme={uploadTheme}>
-      <FileUploader
-        accessLevel="private"
-        acceptedFileTypes={["image/*"]}
-        variation="drop"
-        onSuccess={onSuccess}
-      />
-    </ThemeProvider>
-  );
-
-  const UploadPopup = (
-    <UploadWindow
-      overrides={{
-        CloseButton: { onClick: toggleUploadWindow },
-        UploadSection: { children: UploadElement }
-      }} />
-  );
-
   const [isUploadOpen, setUploadWindow] = useState(false);
   //#endregion
-
-  //#region Options
-  const toggleEditProfileWindow = () => {
-    setEditProfileWindow(!isEditProfileWindowOpen);
-  }
-
-  const OptionsDropdown = (
-    <>
-      <Button
-        display={"block"}
-        width={"100%"}
-        onClick={toggleEditProfileWindow}
-        marginBottom={"10px"}>
-        Edit Profile
-      </Button>
-      <Button
-        display={"block"}
-        backgroundColor={"rgba(0,85,102,1)"}
-        width={"100%"}
-        onClick={signOut}
-        marginBottom={"10px"}
-        color={"#ffffff"}>
-        Sign Out
-      </Button>
-    </>
-  );
 
   const backgroundStyle: React.CSSProperties = {
     margin: '0',
@@ -105,36 +58,27 @@ function App() {
     left: '20%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'start',
     backgroundColor: '#f4f4f4',
     position: 'absolute',
   };
-
-  const [isEditProfileWindowOpen, setEditProfileWindow] = useState(false);
-  //#endregion
-
   return (
 
     <>
-      <NavBar className="NavBar"
-        style={{ zIndex: 1 }}
-        overrides={{
-          Button: { onClick: toggleUploadWindow },
-          DropdownMenu: { children: OptionsDropdown }
-        }} />
+      <Navbar
+        logo="https://via.placeholder.com/30"
+        profileImage="https://via.placeholder.com/30"
+        />
+      <UploadModal/>
       <div style={backgroundStyle}>
-      <Modal
-        isOpen={isUploadOpen}
-        children={(UploadPopup)}
-        onClose={toggleUploadWindow}
-      />
       <Collection
         items={images}
+        
         type="grid"
         padding="2rem"
         maxWidth="1100px"
         margin="100px auto"
-        backgroundColor={"transparent"}
+        backgroundColor={"black"}
         justifyContent="center"
         templateColumns={{
           base: "minmax(0, 500px)",

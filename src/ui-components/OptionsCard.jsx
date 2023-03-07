@@ -14,13 +14,11 @@ export default function OptionsCard(props) {
     <Flex
       gap="8px"
       direction="column"
-      width="30vw"
+      width="unset"
       height="102px"
-      justifyContent="flex-end"
+      justifyContent="center"
       alignItems="center"
       position="relative"
-      top="50px"
-      right="50px"
       boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
       borderRadius="20px"
       padding="10px 10px 10px 10px"
@@ -29,7 +27,7 @@ export default function OptionsCard(props) {
       {...rest}
     >
       <Button
-        borderRadius="20px"
+        borderRadius="21px"
         shrink="0"
         alignSelf="stretch"
         size="default"

@@ -15,6 +15,10 @@ export async function generatePresignedUrl(privateUrl: string): Promise<string> 
         credentials: credentials
       });
 
+
+    if(privateUrl === undefined) {
+        throw new Error("privateUrl is Undefined")
+    }
     // Get the file "folder" (S3 doesn't actually contain folders https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html)
     // Also don't know why the key doesn't have a prefix like the docs says it should.
     const start = privateUrl.indexOf(".com") + 5; // + 5 excludes "".com/"", so elements are added after

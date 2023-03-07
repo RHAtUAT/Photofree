@@ -8,18 +8,17 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
-import { DropdownMenu } from "../DropdownMenu";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
   return (
     <Flex
       gap="37px"
       direction="row"
-      width="100vw"
+      width="1920px"
       height="65px"
       justifyContent="flex-start"
       alignItems="center"
-      position="fixed"
+      position="relative"
       boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
       padding="10px 32px 10px 32px"
       backgroundColor="rgba(255,255,255,1)"
@@ -27,7 +26,12 @@ export default function NavBar(props) {
       {...rest}
     >
       <View
+        width="unset"
+        height="unset"
         display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
         grow="1"
         shrink="1"
         basis="0"
@@ -39,6 +43,8 @@ export default function NavBar(props) {
         <Flex
           gap="37px"
           direction="row"
+          width="unset"
+          height="unset"
           justifyContent="flex-start"
           alignItems="center"
           position="absolute"
@@ -50,6 +56,8 @@ export default function NavBar(props) {
           <Flex
             gap="0"
             direction="row"
+            width="unset"
+            height="unset"
             justifyContent="flex-start"
             alignItems="center"
             shrink="0"
@@ -64,6 +72,9 @@ export default function NavBar(props) {
               width="35px"
               height="35px"
               display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
               shrink="0"
               position="relative"
               padding="0px 0px 0px 0px"
@@ -81,6 +92,9 @@ export default function NavBar(props) {
                   },
                 ]}
                 display="block"
+                gap="unset"
+                alignItems="unset"
+                justifyContent="unset"
                 position="absolute"
                 top="calc(50% - 17.5px - 0px)"
                 left="0px"
@@ -98,6 +112,9 @@ export default function NavBar(props) {
                   },
                 ]}
                 display="block"
+                gap="unset"
+                alignItems="unset"
+                justifyContent="unset"
                 position="absolute"
                 top="5px"
                 left="5px"
@@ -113,6 +130,11 @@ export default function NavBar(props) {
               textAlign="left"
               display="block"
               direction="column"
+              justifyContent="unset"
+              width="unset"
+              height="unset"
+              gap="unset"
+              alignItems="unset"
               shrink="0"
               position="relative"
               padding="0px 0px 0px 0px"
@@ -125,6 +147,8 @@ export default function NavBar(props) {
         <Flex
           gap="32px"
           direction="row"
+          width="unset"
+          height="unset"
           justifyContent="flex-end"
           alignItems="center"
           position="absolute"
@@ -145,15 +169,20 @@ export default function NavBar(props) {
             children="Upload"
             {...getOverrideProps(overrides, "Button")}
           ></Button>
-          <DropdownMenu
+          <Image
+            width="45px"
+            height="45px"
             display="block"
+            gap="unset"
+            alignItems="unset"
+            justifyContent="unset"
             shrink="0"
             position="relative"
+            borderRadius="160px"
+            padding="0px 0px 0px 0px"
             objectFit="cover"
-            boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-            {...getOverrideProps(overrides, "DropdownMenu")}
-          >
-          </DropdownMenu>
+            {...getOverrideProps(overrides, "Image")}
+          ></Image>
         </Flex>
       </View>
     </Flex>
